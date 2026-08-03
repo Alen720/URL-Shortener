@@ -163,7 +163,7 @@ Open:
 
 ## 📌 Roadmap
 
-- [ ] URL shortening endpoint
+- [X] URL shortening endpoint
 - [ ] Redirect endpoint
 - [ ] Click analytics
 - [ ] React dashboard
