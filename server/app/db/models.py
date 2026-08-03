@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from sqlalchemy import String, DateTime, Column, Integer
-from app.db.database import Base
+from db.database import Base
 
 class URLLinks(Base):
     __tablename__ = "Links"

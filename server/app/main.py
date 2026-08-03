@@ -5,8 +5,8 @@ from fastapi.responses import FileResponse
 import uvicorn
 import os
 
-from app.db.database import Base, engine
-from app.routes import links, short, redirect
+from db.database import Base, engine
+from routes import links, short, redirect
 
 Base.metadata.create_all(bind=engine)
 
