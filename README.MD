@@ -29,7 +29,6 @@ A fast and lightweight full-stack URL shortener built with **FastAPI**, **SQLite
 ### Frontend
 
 - React
-- Vite
 - CSS3
 
 ### Database
@@ -43,33 +42,6 @@ A fast and lightweight full-stack URL shortener built with **FastAPI**, **SQLite
 
 ---
 
-## 📂 Project Structure
-
-```text
-url-shortener/
-├── client/
-│   ├── src/
-│   ├── public/
-│   └── ...
-│
-├── server/
-│   ├── app/
-│   │   ├── db/
-│   │   │   ├── database.py
-│   │   │   └── models.py
-│   │   ├── domain/
-│   │   │   ├── schemas.py
-│   │   │   └── utils.py
-│   │   ├── routes/
-│   │   └── main.py
-│   └── requirements.txt
-│
-├── Dockerfile
-└── README.md
-```
-
----
-
 ## 🚀 Getting Started
 
 ### 🐳 Run with Docker (Recommended)
@@ -77,28 +49,29 @@ url-shortener/
 Build the Docker image:
 
 ```bash
-docker build -t url-shortener .
+docker build -f server/Dockerfile -t url-shortener .
 ```
 
 Run the container:
 
 ```bash
 docker run -d \
-  --name url-shortener \
   -p 8000:8000 \
+  -v $(pwd)/server/shortener.db:/app/server/shortener.db \
+  --name url-shortener-app \
   url-shortener
 ```
 
 Stop the container:
 
 ```bash
-docker stop url-shortener
+docker stop url-shortener-app
 ```
 
 Remove the container:
 
 ```bash
-docker rm url-shortener
+docker rm url-shortener-app
 ```
 
 Once the container is running:
@@ -148,7 +121,7 @@ pip install -r requirements.txt
 Start the development server:
 
 ```bash
-uvicorn app.main:app --reload
+python app/main.py
 ```
 
 Open:
