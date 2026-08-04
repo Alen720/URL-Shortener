@@ -20,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-# app.include_router(links.router)
+app.include_router(links.router)
 app.include_router(short.router)
 # app.include_router(redirect.router)
 
