@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl, ConfigDict
 
 class URLCreate(BaseModel):
     original_url: HttpUrl
@@ -11,5 +11,4 @@ class URLResponse(BaseModel):
     clicks: int
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes = True)

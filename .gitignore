@@ -9,6 +9,7 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 venv/
 .venv/
 env/
@@ -16,7 +17,6 @@ env/
 *.sqlite
 *.sqlite3
 shortener.db
-
 # ================= Frontend (React / Node) =================
 node_modules/
 /client/node_modules/

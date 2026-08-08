@@ -8,8 +8,6 @@ import os
 from db.database import Base, engine
 from routes import links, short, redirect
 
-Base.metadata.create_all(bind=engine)
-
 app = FastAPI(title="URL Shortener")
 
 app.add_middleware(
@@ -34,4 +32,5 @@ if os.path.exists(STATIC_DIR):
         return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 if __name__ == "__main__":
+    Base.metadata.create_all(bind=engine)
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
