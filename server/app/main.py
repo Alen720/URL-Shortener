@@ -20,7 +20,7 @@ app.add_middleware(
 
 app.include_router(links.router)
 app.include_router(short.router)
-# app.include_router(redirect.router)
+app.include_router(redirect.router)
 
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "..",  "static")
 

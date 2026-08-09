@@ -1,9 +1,4 @@
-from fastapi.testclient import TestClient
-from main import app
-
-client = TestClient(app)
-
-def test_create_short_link():
+def test_create_short_link(client):
     response = client.post(
         "/api/shorten",
         json={"original_url": "https://example.com"}
@@ -18,7 +13,7 @@ def test_create_short_link():
 
     assert data["original_url"] == "https://example.com/"
 
-def test_get_all_links():
+def test_get_all_links(client):
     client.post(
         "/api/shorten",
         json={"original_url": "https://python.org"}
@@ -30,5 +25,5 @@ def test_get_all_links():
     data = response.json()
 
     assert isinstance(data, list)
-    assert len(data) > 0
+    assert len(data) == 1
     assert data[0]["original_url"] == "https://python.org/"
