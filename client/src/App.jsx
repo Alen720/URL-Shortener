@@ -5,7 +5,7 @@ function App() {
   const [url, setUrl] = useState("");
   const [links, setLinks] = useState(null);
 
-  const API = "http://localhost:8000/api";
+  const API = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
 
   function handleSubmit(e) {
     e.preventDefault();
