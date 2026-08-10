@@ -6,6 +6,7 @@ function App() {
   const [links, setLinks] = useState(null);
 
   const API = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
+  const BASE_URL = API.replace(/\/api\/?$/, "");
 
   function handleSubmit(e) {
     e.preventDefault();
