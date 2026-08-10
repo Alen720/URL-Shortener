@@ -20,7 +20,6 @@ body {
   font-weight: 700;
 }
 
-/* Форма ввода */
 .shortener-form {
   display: flex;
   gap: 10px;
@@ -59,7 +58,6 @@ body {
   background-color: #535bf2;
 }
 
-/* Карточка ссылки */
 .links-list {
   display: flex;
   flex-direction: column;
@@ -110,4 +108,45 @@ body {
   border-radius: 6px;
   color: #999;
   font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .App {
+    margin: 30px auto;
+    padding: 0 16px;
+  }
+
+  .App h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .shortener-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .url-input,
+  .submit-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .submit-btn {
+    padding: 14px;
+  }
+
+  .linksItem {
+    padding: 16px;
+  }
+
+  .short-url-div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .clicks-badge {
+    align-self: flex-start;
+  }
 }
