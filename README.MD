@@ -139,8 +139,8 @@ Open:
 - [X] URL shortening endpoint
 - [X] Redirect endpoint
 - [X] Click analytics
-- [ ] React dashboard
-- [ ] Search and filter links
+- [X] React dashboard
+- [X] Search and filter links
 - [ ] Delete links
 - [ ] Copy-to-clipboard button
 
