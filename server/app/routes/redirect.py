@@ -25,6 +25,6 @@ def redirect_to_original(short_code: str, db: Session = Depends(get_db)):
         target_url = f"https://{target_url}"
 
     return RedirectResponse(
-        url=link.original_url,
+        url=target_url,
         status_code=status.HTTP_307_TEMPORARY_REDIRECT
     )
