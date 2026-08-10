@@ -19,7 +19,7 @@ def test_get_all_links(client):
         json={"original_url": "https://python.org"}
     )
 
-    response = client.get("/api/links")
+    response = client.get("/api/link")
 
     assert response.status_code == 200
     data = response.json()

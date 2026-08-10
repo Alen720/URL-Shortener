@@ -9,11 +9,6 @@ from domain.utils import generate_short_code
 
 router = APIRouter(prefix="/api", tags=["Shorten"])
 
-@router.get("/links",response_model=List[URLResponse])
-def get_all_links(db: Session = Depends(get_db)):
-    links = db.query(URLLinks).order_by(URLLinks.created_at.desc()).all()
-    return links
-
 @router.post("/shorten", response_model=URLResponse, status_code=status.HTTP_201_CREATED)
 def create_short_code(payload: URLCreate, db: Session = Depends(get_db)):
     code = None
