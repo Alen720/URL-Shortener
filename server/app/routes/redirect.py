@@ -21,8 +21,8 @@ def redirect_to_original(short_code: str, db: Session = Depends(get_db)):
     db.commit()
 
     target_url = link.original_url
-    if not target_url.startswith("http://", "http://"):
-        target_url = f"http://{target_url}"
+    if not target_url.startswith(("http://", "https://")):
+        target_url = f"https://{target_url}"
 
     return RedirectResponse(
         url=link.original_url,

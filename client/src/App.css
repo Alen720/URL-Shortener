@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+}
+
+.App {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.App h1 {
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+/* Форма ввода */
+.shortener-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.url-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.url-input:focus {
+  border-color: #646cff;
+}
+
+.submit-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #646cff;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #535bf2;
+}
+
+/* Карточка ссылки */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.linksItem {
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
+
+.linksItem h1 {
+  font-size: 1.05rem;
+  margin: 0 0 12px 0;
+  color: #bbb;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.short-url-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.short-url {
+  color: #646cff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.short-url:hover {
+  text-decoration: underline;
+}
+
+.clicks-badge {
+  font-size: 0.85rem;
+  margin: 0;
+  background-color: #2a2a2a;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: #999;
+  font-weight: 500;
+}

@@ -1,8 +1,8 @@
 from datetime import datetime, timezone
-from pydantic import BaseModel, Field, HttpUrl, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict
 
 class URLCreate(BaseModel):
-    original_url: HttpUrl
+    original_url: str
 
 class URLResponse(BaseModel):
     id: int

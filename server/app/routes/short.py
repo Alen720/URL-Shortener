@@ -32,9 +32,14 @@ def create_short_code(payload: URLCreate, db: Session = Depends(get_db)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Could not generate unique short code"
         )
-    
+
+    url = str(payload.original_url).strip()
+
+    if not url.startswith(("http://", "https://")):
+        url = f"https://{url}"
+
     db_link = URLLinks(
-        original_url=str(payload.original_url),
+        original_url=url,
         short_code=code
     )
 

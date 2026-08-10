@@ -137,8 +137,8 @@ Open:
 ## 📌 Roadmap
 
 - [X] URL shortening endpoint
-- [ ] Redirect endpoint
-- [ ] Click analytics
+- [X] Redirect endpoint
+- [X] Click analytics
 - [ ] React dashboard
 - [ ] Search and filter links
 - [ ] Delete links
