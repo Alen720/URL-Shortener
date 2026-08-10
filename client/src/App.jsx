@@ -3,7 +3,10 @@ import "./App.css";
 
 function App() {
   const [url, setUrl] = useState("");
-  const [links, setLinks] = useState(null);
+  const [links, setLinks] = useState(() => {
+    const saved = localStorage.getItem("lastlink")
+    return saved ? JSON.parse(saved) : null
+  });
 
   const API = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
   const BASE_URL = API.replace(/\/api\/?$/, "");
@@ -17,13 +20,14 @@ function App() {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Ошибка создания ссылки");
+          throw new Error("Link Error");
         }
         return res.json();
       })
       .then((newLink) => {
         setUrl("");
         setLinks(newLink);
+        localStorage.setItem("lastlink", JSON.stringify(newLink))
       });
   }
 
