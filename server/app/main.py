@@ -20,8 +20,8 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-app.include_router(links.router, prefix="/api")
-app.include_router(short.router, prefix="/api")
+app.include_router(links.router)
+app.include_router(short.router)
 app.include_router(redirect.router)
 
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "..",  "static")
