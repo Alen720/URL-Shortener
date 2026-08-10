@@ -15,16 +15,16 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ original_url: url }),
     })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Ошибка создания ссылки");
-      }
-      return res.json();
-    })
-    .then((newLink) => {
-      setUrl("");
-      setLinks(newLink);
-    });
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Ошибка создания ссылки");
+        }
+        return res.json();
+      })
+      .then((newLink) => {
+        setUrl("");
+        setLinks(newLink);
+      });
   }
 
   return (
@@ -50,12 +50,12 @@ function App() {
             <h1>{links.original_url}</h1>
             <div className="short-url-div">
               <a
-                href={`http://localhost:8000/${links.short_code}`}
+                href={`${BASE_URL}/${links.short_code}`}
                 target="_blank"
                 rel="noreferrer"
                 className="short-url"
               >
-                http://localhost:8000/{links.short_code}
+                {`${BASE_URL}/${links.short_code}`}
               </a>
               <h2 className="clicks-badge">link clicks: {links.clicks}</h2>
             </div>
