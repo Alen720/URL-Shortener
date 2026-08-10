@@ -10,6 +10,8 @@ from routes import links, short, redirect
 
 app = FastAPI(title="URL Shortener")
 
+Base.metadata.create_all(bind=engine)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://url-shortener-blush-six.vercel.app", "http://localhost:3000", "http://127.0.0.1:3000"],
@@ -32,5 +34,5 @@ if os.path.exists(STATIC_DIR):
         return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 if __name__ == "__main__":
-    Base.metadata.create_all(bind=engine)
+    # Base.metadata.create_all(bind=engine)
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
