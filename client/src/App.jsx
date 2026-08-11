@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+
+const API = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
+const BASE_URL = API.replace(/\/api\/?$/, "");
 
 function App() {
   const [url, setUrl] = useState("");
   const [links, setLinks] = useState(() => {
-    const saved = localStorage.getItem("lastlink")
-    return saved ? JSON.parse(saved) : null
+    try {
+      const saved = localStorage.getItem("lastlink");
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
   });
 
-  const API = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
-  const BASE_URL = API.replace(/\/api\/?$/, "");
+  useEffect(() => {
+    if (!links?.short_code) return;
+
+    fetch(`${API}/links/${links.short_code}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Ссылка не найдена");
+        return res.json();
+      })
+      .then((updatedLink) => {
+        setLinks(updatedLink);
+        localStorage.setItem("lastlink", JSON.stringify(updatedLink));
+      })
+      .catch((err) => {
+        localStorage.removeItem("lastlink");
+        setLinks(null);
+      });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,7 +49,7 @@ function App() {
       .then((newLink) => {
         setUrl("");
         setLinks(newLink);
-        localStorage.setItem("lastlink", JSON.stringify(newLink))
+        localStorage.setItem("lastlink", JSON.stringify(newLink));
       });
   }
 
