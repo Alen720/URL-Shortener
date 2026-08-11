@@ -20,7 +20,7 @@ function App() {
 
     fetch(`${API}/links/${links.short_code}`)
       .then((res) => {
-        if (!res.ok) throw new Error("Ссылка не найдена");
+        if (!res.ok) throw new Error("Link Error");
         return res.json();
       })
       .then((updatedLink) => {
