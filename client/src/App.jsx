@@ -20,7 +20,7 @@ function App() {
 
     fetch(`${API}/links/${links.short_code}`)
       .then((res) => {
-        if (!res.ok) throw new Error("Link Error");
+        if (!res.ok) throw new Error("Link Is Not Found");
         return res.json();
       })
       .then((updatedLink) => {
@@ -31,7 +31,7 @@ function App() {
         localStorage.removeItem("lastlink");
         setLinks(null);
       });
-  }, []);
+  }, [links?.short_code]);
 
   function handleSubmit(e) {
     e.preventDefault();
