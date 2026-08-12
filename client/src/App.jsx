@@ -87,13 +87,11 @@ function App() {
 
       {loading && (
         <div className="loading-status">
-          <div className="loading-status">
-            <p className="loading-text">
-              ⏳ Shortening the link... The server may take up to 30–40 seconds
-              to wake up.
-            </p>
-            <div className="loading-spinner"></div>
-          </div>
+          <p className="loading-text">
+            ⏳ Shortening the link... The server may take up to 30–40 seconds
+            to wake up.
+          </p>
+          <div className="loading-spinner"></div>
         </div>
       )}
 
