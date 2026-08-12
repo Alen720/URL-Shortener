@@ -121,7 +121,7 @@ function App() {
               </a>
               <button
                 className={`copy-btn ${copied ? "copied" : ""}`}
-                onSubmit={handleCopy}
+                onClick={handleCopy}
               >
                 {copied ? "Copied!" : "Copy to clipboard"}
               </button>
