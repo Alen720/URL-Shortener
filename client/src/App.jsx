@@ -7,6 +7,7 @@ const BASE_URL = API.replace(/\/api\/?$/, "");
 function App() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [links, setLinks] = useState(() => {
     try {
@@ -67,6 +68,15 @@ function App() {
       .finally(() => setLoading(false));
   }
 
+  function handleCopy() {
+    if (!links?.short_code) return;
+    const short_url = `${BASE_URL}/${links.short_code}`;
+    navigator.clipboard.writeText(short_url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
   return (
     <div className="App">
       <h1>URL SHORTENER</h1>
@@ -88,8 +98,8 @@ function App() {
       {loading && (
         <div className="loading-status">
           <p>
-            ⏳ Shortening the link... The server may take up to 30–40 seconds
-            to wake up.
+            ⏳ Shortening the link... The server may take up to 30–40 seconds to
+            wake up.
           </p>
         </div>
       )}
@@ -109,6 +119,12 @@ function App() {
               >
                 {`${BASE_URL}/${links.short_code}`}
               </a>
+              <button
+                className={`copy-btn ${copied ? "copied" : ""}`}
+                onSubmit={handleCopy}
+              >
+                {copied ? "Copied!" : "Copy to clipboard"}
+              </button>
               <h2 className="clicks-badge">link clicks: {links.clicks}</h2>
             </div>
           </div>

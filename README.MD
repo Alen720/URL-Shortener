@@ -1,4 +1,4 @@
-# 🔗 URL Shortener
+# 🔗 URL Shortener https://url-shortener-blush-six.vercel.app/
 
 A fast and lightweight full-stack URL shortener built with **FastAPI**, **SQLite**, and **React**. It converts long URLs into unique 6-character short links and tracks redirect statistics in real time.
 
@@ -141,7 +141,7 @@ Open:
 - [X] Click analytics
 - [X] React dashboard
 - [X] Search and filter links
-- [ ] Copy-to-clipboard button
+- [X] Copy-to-clipboard button
 
 ---
 

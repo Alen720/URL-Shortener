@@ -107,11 +107,40 @@ body {
   text-decoration: underline;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-btn {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #3d3d3d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: #383838;
+  border-color: #4a4a4a;
+}
+
+.copy-btn.copied {
+  background-color: #1b4d2e;
+  border-color: #2e7d32;
+  color: #81c784;
+}
+
 .clicks-badge {
   font-size: 0.85rem;
   margin: 0;
   background-color: #2a2a2a;
-  padding: 4px 10px;
+  padding: 6px 10px;
   border-radius: 6px;
   color: #999;
   font-weight: 500;
@@ -163,10 +192,11 @@ body {
   .short-url-div {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .clicks-badge {
-    align-self: flex-start;
+  .actions {
+    width: 100%;
+    justify-content: space-between;
   }
 }
