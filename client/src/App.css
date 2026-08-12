@@ -123,6 +123,9 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-width: 140px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .copy-btn:hover {
@@ -144,6 +147,9 @@ body {
   border-radius: 6px;
   color: #999;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .loading-status {
