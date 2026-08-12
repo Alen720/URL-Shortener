@@ -110,6 +110,42 @@ body {
   font-weight: 500;
 }
 
+.url-input:disabled,
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+  transition: all 0.2s ease-in-out;
+}
+
+.loading-status {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.error-msg {
+  margin-top: 18px;
+  color: #ff5555;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @media (max-width: 480px) {
   .App {
     margin: 30px auto;

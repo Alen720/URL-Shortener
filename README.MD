@@ -141,7 +141,6 @@ Open:
 - [X] Click analytics
 - [X] React dashboard
 - [X] Search and filter links
-- [ ] Delete links
 - [ ] Copy-to-clipboard button
 
 ---

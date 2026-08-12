@@ -6,6 +6,8 @@ const BASE_URL = API.replace(/\/api\/?$/, "");
 
 function App() {
   const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [links, setLinks] = useState(() => {
     try {
       const saved = localStorage.getItem("lastlink");
@@ -35,6 +37,12 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if(!url.trim()) return;
+
+    setLoading(true);
+    setErrMsg("");
+
     fetch(`${API}/shorten`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -50,7 +58,9 @@ function App() {
         setUrl("");
         setLinks(newLink);
         localStorage.setItem("lastlink", JSON.stringify(newLink));
-      });
+      })
+      .catch(() => setErrMsg("Server is waking up or an error occurred. Please try again."))
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -64,13 +74,22 @@ function App() {
           placeholder="Enter here link"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+          disabled={loading}
         />
-        <button className="submit-btn" type="submit">
-          to shorten
+        <button className="submit-btn" type="submit" disabled={loading}>
+          {loading ? "shortening" : "to shorten"}
         </button>
       </form>
 
-      {links && (
+      {loading && (
+        <div className="loading-status">
+          <p>⏳ Shortening the link... The server may take up to 30–40 seconds to wake up.</p>
+        </div>
+      )}
+
+      {errMsg && <p className="error-msg">{errMsg}</p>}
+
+      {links && !loading && (
         <div className="links-list">
           <div className="linksItem">
             <h1>{links.original_url}</h1>
