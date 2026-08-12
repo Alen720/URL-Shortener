@@ -110,33 +110,27 @@ body {
   font-weight: 500;
 }
 
-.url-input:disabled,
-.submit-btn:disabled {
+.submit-btn:disabled,
+.url-input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  filter: grayscale(30%);
-  transition: all 0.2s ease-in-out;
 }
 
 .loading-status {
-  margin-top: 18px;
+  margin-top: 15px;
   font-size: 14px;
-  color: #a0a0a0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: pulse 1.4s ease-in-out infinite alternate;
+  color: #888;
+  animation: pulse 1.5s infinite alternate;
+}
+
+.error-msg {
+  color: #ff4d4d;
+  margin-top: 15px;
 }
 
 @keyframes pulse {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.99);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
 .error-msg {
