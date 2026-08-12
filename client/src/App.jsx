@@ -38,7 +38,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(!url.trim()) return;
+    if (!url.trim()) return;
 
     setLoading(true);
     setErrMsg("");
@@ -59,7 +59,11 @@ function App() {
         setLinks(newLink);
         localStorage.setItem("lastlink", JSON.stringify(newLink));
       })
-      .catch(() => setErrMsg("Server is waking up or an error occurred. Please try again."))
+      .catch(() =>
+        setErrMsg(
+          "Server is waking up or an error occurred. Please try again.",
+        ),
+      )
       .finally(() => setLoading(false));
   }
 
@@ -83,11 +87,22 @@ function App() {
 
       {loading && (
         <div className="loading-status">
-          <p>⏳ Shortening the link... The server may take up to 30–40 seconds to wake up.</p>
+          <p>
+            ⏳ Shortening the link... The server may take up to 30–40 seconds to
+            wake up.
+          </p>
         </div>
       )}
 
-      {errMsg && <p className="error-msg">{errMsg}</p>}
+      {errMsg && (
+        <div className="loading-status">
+          <p className="loading-text">
+            ⏳ Shortening the link... The server may take up to 30–40 seconds to
+            wake up.
+          </p>
+          <div className="loading-spinner"></div>
+        </div>
+      )}
 
       {links && !loading && (
         <div className="links-list">
