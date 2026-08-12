@@ -2,10 +2,6 @@
 
 A fast and lightweight full-stack URL shortener built with **FastAPI**, **SQLite**, and **React**. It converts long URLs into unique 6-character short links and tracks redirect statistics in real time.
 
-> 🚧 **Status: Work in Progress**
->
-> This project is currently under active development. Core functionality is being implemented, and new features will be added over time.
-
 ---
 
 ## ✨ Features
@@ -13,7 +9,6 @@ A fast and lightweight full-stack URL shortener built with **FastAPI**, **SQLite
 - ✂️ **Shorten URLs** — Generate unique, collision-resistant 6-character short codes.
 - 🔀 **Fast Redirects** — Redirect users instantly using HTTP 307 responses.
 - 📊 **Click Analytics** — Track the number of visits for every shortened URL.
-- 📋 **Dashboard** *(Planned)* — Manage shortened links and view click statistics.
 
 ---
 
@@ -123,14 +118,6 @@ Start the development server:
 ```bash
 python app/main.py
 ```
-
-Open:
-
-| Service | URL |
-|---------|-----|
-| 🚀 API | http://127.0.0.1:8000 |
-| 📚 Swagger UI | http://127.0.0.1:8000/docs |
-| 📄 ReDoc | http://127.0.0.1:8000/redoc |
 
 ---
 
