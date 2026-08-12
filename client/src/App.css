@@ -58,6 +58,13 @@ body {
   background-color: #535bf2;
 }
 
+.submit-btn:disabled,
+.url-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+}
+
 .links-list {
   display: flex;
   flex-direction: column;
@@ -110,27 +117,33 @@ body {
   font-weight: 500;
 }
 
-.submit-btn:disabled,
-.url-input:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .loading-status {
-  margin-top: 15px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-text {
   font-size: 14px;
-  color: #888;
-  animation: pulse 1.5s infinite alternate;
+  color: #a0a0a0;
+  margin: 0;
 }
 
-.error-msg {
-  color: #ff4d4d;
-  margin-top: 15px;
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #646cff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  100% { opacity: 1; }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .error-msg {
