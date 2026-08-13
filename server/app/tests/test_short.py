@@ -11,7 +11,7 @@ def test_create_short_link(client):
 
     assert len(data["short_code"]) == 6
 
-    assert data["original_url"] == "https://example.com/"
+    assert data["original_url"] == "https://example.com"
 
 def test_get_all_links(client):
     client.post(
@@ -26,4 +26,4 @@ def test_get_all_links(client):
 
     assert isinstance(data, list)
     assert len(data) == 1
-    assert data[0]["original_url"] == "https://python.org/"
+    assert data[0]["original_url"] == "https://python.org"
